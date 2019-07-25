@@ -1,4 +1,5 @@
 const express = require('express');
+const graphqlHTTP = require('express-graphql');
 
 //setup our express app
 const app = express();

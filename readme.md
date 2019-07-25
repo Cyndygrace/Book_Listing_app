@@ -34,3 +34,7 @@ next is to setup our graphQl
 
 first we install our grapgql module  and express-graphql that allows express understand/communicate with our graphql.
 npm install graphql express-graphql --save
+
+
+next we require express-graphql into the app file in our server as
+const graphqlHTTP = require('express-graphql')
