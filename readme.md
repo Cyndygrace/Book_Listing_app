@@ -32,9 +32,22 @@ or nodemon app.js
 
 next is to setup our graphQl
 
-first we install our grapgql module  and express-graphql that allows express understand/communicate with our graphql.
+first we install our grapgql module  and express-graphql that allows express understand/communicate with our graphql, and also to provide a simple way to create an express server to run the graphql api.
 npm install graphql express-graphql --save
 
 
 next we require express-graphql into the app file in our server as
 const graphqlHTTP = require('express-graphql')
+we use the graphql as middleware on a single route and this route will be like an end-point to interact with our graphql data
+
+next, we setup some middleware which on the graphql that all the request will be sent to
+app.use('graphql', graphqlHTTP({
+
+}))
+when someone sends a request through the graphql route, express(which do not understand graphql) will send it to the grahqlHTTP function to process it 
+
+express-graphql alias graphqlHTTP is a function that takes an object schema
+the schema will tell express-graphql about our data and how our graph will look (datatypes, properties, relationships)
+
+Now we need to create a schema that describes how our data should look
+In our server folder, we create a schema folder and file inside called schema.js 
