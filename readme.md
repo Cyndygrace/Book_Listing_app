@@ -50,4 +50,6 @@ express-graphql alias graphqlHTTP is a function that takes an object schema
 the schema will tell express-graphql about our data and how our graph will look (datatypes, properties, relationships)
 
 Now we need to create a schema that describes how our data should look
-In our server folder, we create a schema folder and file inside called schema.js 
+In our server folder, we create a schema folder and file inside called schema.js.
+Here we require the main graphql file. 
+const graphql = require('graphql') 
