@@ -51,5 +51,8 @@ the schema will tell express-graphql about our data and how our graph will look 
 
 Now we need to create a schema that describes how our data should look
 In our server folder, we create a schema folder and file inside called schema.js.
-Here we require the main graphql file. 
+first we require the main graphql file. 
 const graphql = require('graphql') 
+then we create our schema. Our schema will define the type of data, object types, relationship and how we want our data to interact and how to query them.
+In creating our schema, we destructure graphql to obtain the graphql object data template
+const {GraphQLObjectType} = graphql;
