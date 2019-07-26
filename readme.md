@@ -115,3 +115,9 @@ mongoose.connect('mongodb+srv://Cynthia:cynilo8891@cluster0-09ybn.mongodb.net/te
 mongoose.connection.on('open', () => {
   console.log('connected')
 })
+
+next we create our model and schema for each dataType that we will store on mongodb
+graphql schema is defining our graph and the object-type on our graph while mongo/mongoose schema define the data we will store in our database
+
+first we create a folder called models then in it we create 2 files, one for books.js and another for author.js
+then in the book.js, wee require mongoose, then get the mongoose schema ppty and store in a variable
