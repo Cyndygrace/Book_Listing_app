@@ -11,3 +11,5 @@ const bookSchema = new Schema({
 
 //  the model creates a collection called book which will contain objects with bookSchema structure
 module.exports = mongoose.model('BOOK', bookSchema)
+
+// we use our book model to intract with our book collection on mongodb
