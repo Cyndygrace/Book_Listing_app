@@ -100,3 +100,18 @@ next to represent the list of books each author has written, we add the book pro
 
 next we define query to get all authors, all books, all authors and their books, all books and their authors in the root query
 
+Next is to move our data to mongo database on the cloud using Atlas.
+Atlas allows you to to host your database on mongodb without having to download mongo to your laptop
+
+first we login to atlas and get the connection link, after which we install mongoose on our application locally.
+mongoose lets us communicate easily with mongodb.
+npm i mongoose --save
+
+next we require mongoose in our app.js file
+next we connect to atlas with the connection string gotten on the atlas site
+then we set up a listener to log a message to the console once connection is succesfull
+
+mongoose.connect('mongodb+srv://Cynthia:cynilo8891@cluster0-09ybn.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connection.on('open', () => {
+  console.log('connected')
+})
