@@ -9,11 +9,18 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect to mlab db using mongoose
-mongoose.connect('mongodb+srv://Cynthia:cynilo8891@cluster0-09ybn.mongodb.net/test?retryWrites=true&w=majority')
-mongoose.connection.on('open', () => {
-  console.log('connected to database')
+mongoose.connect('mongodb+srv://Cyndycodes:cynthia@cluster0-r9uq9.mongodb.net/test?retryWrites=true&w=majority')
+mongoose.connection.once('open', () => {
+  console.log('Connected to database...')
+}).catch(err=>{
+  console.log(err.message)
 })
-
+// const uri = 'mongodb+srv://Cyndycodes:cynthia@cluster0-r9uq9.mongodb.net/test?retryWrites=true&w=majority'
+// mongoose.connect(uri,{useNewUrlParser:true}).then(()=>{
+//   console.log('succesfully connected')
+// }).catch(err=>{
+//   console.log(err.message)
+// })
 //setup express-graphql middleware route to handle graphql requests
 app.use(
   '/graphql',
