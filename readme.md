@@ -96,3 +96,5 @@ Every book has an author and every author has a collection of books.
 we need to represent this relationship in graphql using the id 
 first you add the author id to the books data, then you add the author property to the book type object
 
+next to represent the list of books each author has written, we add the book property to the object authortype. The destructure grqphqllist from grapghql to be able to list books from same author
+

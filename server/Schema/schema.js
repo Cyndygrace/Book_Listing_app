@@ -5,13 +5,21 @@ const _ = require('lodash');
 
 //We destructure graphql to obtain the graphql object data template
 //next we destructure graphql to get the string
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLString, 
+  GraphQLSchema, 
+  GraphQLID, 
+  GraphQLInt, 
+  GraphQLList
+} = graphql;
 
 //dummy data
 var books = [
   { name: 'Name of the wind', genre: 'Fantasy', id: '1', authorID: '1' },
   { name: 'The Final Empire', genre: 'Fantasy', id: '2', authorID: '3' },
-  { name: 'The Long Earth', genre: 'Sci-Fi', id: '3', authorID: '2' }
+  { name: 'The Long Earth', genre: 'Sci-Fi', id: '3', authorID: '2' },
+  { name: 'The Hero of ages', genre: 'Sci-Fi', id: '4', authorID: '3' },
+  { name: 'The color of Magic', genre: 'Sci-Fi', id: '5', authorID: '2' },
+  { name: 'The Light Fantastic', genre: 'Sci-Fi', id: '6', authorID: '1' }
 ];
 
 var authors = [
@@ -45,7 +53,14 @@ const AuthorType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    age: { type: GraphQLString }
+    age: { type: GraphQLInt },
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args){
+         return _.filter(books,{authorID:parent.id});
+       
+      }
+    }
   })
 });
 
