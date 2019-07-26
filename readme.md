@@ -90,5 +90,5 @@ Inside our graphql middleware, we add the graphiql as a gui to test our route/re
 
 so instead of our string id, we can use an id type in graphql called a graphqlid, we destructure it from graphql and changed the type of the id from string to GraphQLID
 
-Next we create the schema for the authors and hardcode their data
+Next we create the schema for the authors and hardcode their data and define author query in the root query
 

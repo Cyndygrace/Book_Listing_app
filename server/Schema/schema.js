@@ -22,7 +22,7 @@ var books = [
 var authors = [
   {name: 'Patrick Rothufuss', age: 44, id: '1'},
   {name: 'Brandon Sanderson', age: 42, id: '2'},
-  {name: 'Terry Pratchett', age: 66, id: '3'},
+  {name: 'Terry Pratchett', age: 66, id: '3'}
   
 ]
 
@@ -37,6 +37,16 @@ const BookType = new GraphQLObjectType({
   })
 })
 
+//define a type
+const AuthorType = new GraphQLObjectType({
+  name :'Author',
+  //when we have multiple types,and they have references to one another, unless we wrap those fields in a function, one type might not necessarily know what another typr is. so that when we have multiple types, it will help prevent reference errors.
+  fields : () => ({
+    id: {type: GraphQLID},
+    name: {type: GraphQLString},
+    age: {type: GraphQLString}
+  })
+})
 
 //next we defined root query, how user can easily get data
 const RootQuery = new GraphQLObjectType({
@@ -51,6 +61,14 @@ const RootQuery = new GraphQLObjectType({
         //code to get data from db/other source
         // use lodash to look through the books array and find the book with the id of id
       return _.find(books, {id: args.id});
+      }
+    },
+
+    author: {
+      type: AuthorType,
+      args: {id : {type: GraphQLID}},
+      resolve(parent, args) {
+        return _.find(authors, {id: args.id});
       }
     }
   }
