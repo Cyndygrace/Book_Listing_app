@@ -56,3 +56,10 @@ const graphql = require('graphql')
 then we create our schema. Our schema will define the type of data, object types, relationship and how we want our data to interact and how to query them.
 In creating our schema, we destructure graphql to obtain the graphql object data template
 const {GraphQLObjectType} = graphql;
+
+next we define our type
+
+//when we have multiple types,and they have references to one another, unless we wrap those fields in a function, one typr might not necessarily know what another typr is.
+
+In the field parameters, we need to specify the type of data that should be stored in the id. The type has to be destructured from grapghql for gragpql to be able to read it. if it is a string, it is destructured like this
+const {GraphQLObjectType, GraphQLString} = graphql;
