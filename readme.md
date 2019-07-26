@@ -63,3 +63,7 @@ next we define our type
 
 In the field parameters, we need to specify the type of data that should be stored in the id. The type has to be destructured from grapghql for gragpql to be able to read it. if it is a string, it is destructured like this
 const {GraphQLObjectType, GraphQLString} = graphql;
+
+
+
+next we import the schema file in the app file and define it inside the middleware
