@@ -90,5 +90,9 @@ Inside our graphql middleware, we add the graphiql as a gui to test our route/re
 
 so instead of our string id, we can use an id type in graphql called a graphqlid, we destructure it from graphql and changed the type of the id from string to GraphQLID
 
-Next we create the schema for the authors and hardcode their data and define author query in the root query
+Next we create the schema for the authors and hardcode their data and define author query in the root query.
+
+Every book has an author and every author has a collection of books.
+we need to represent this relationship in graphql using the id 
+first you add the author id to the books data, then you add the author property to the book type object
 
