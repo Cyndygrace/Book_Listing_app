@@ -84,4 +84,7 @@ form it the request Made, it knows to look for a book query inside the root quer
 
  Next we create our dummy data in an array of ojects just temporarily and install Lodash
  npm install lodash
-  to help us manipulate or find or change data inside our hard coded data in the array.
+to help us manipulate or find or change data inside our hard coded data in the array.
+
+so instead of our string id, we can use an id type in graphql called a graphqlid, we destructure it from graphql and changed the type of the id from string to GraphQLID
+
