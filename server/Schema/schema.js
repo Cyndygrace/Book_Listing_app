@@ -1,6 +1,6 @@
 //require the main graphql
 const graphql = require('graphql');
-
+const_ = require('lodash')
 //in creating our schema, 
 
 //We destructure graphql to obtain the graphql object data template
@@ -37,6 +37,8 @@ const RootQuery = new GraphQLObjectType({
       args:{id : {type: GraphQLString}},
       resolve(parent, args) {
         //code to get data from db/other source
+        // use lodash to look through the books array and find the book with the id of id
+      return _.find(books, {id: args.id});
       }
     }
   }
