@@ -121,3 +121,8 @@ graphql schema is defining our graph and the object-type on our graph while mong
 
 first we create a folder called models then in it we create 2 files, one for books.js and another for author.js
 then in the book.js, wee require mongoose, then get the mongoose schema ppty and store in a variable
+
+then we create mongoose schema for our book data that will be stored in the db and also create a model with collection and schema as parameters in the book .js file
+then we create mongoose schema for our author data that will be stored in the db and also create a model with collection and schema as parameters in the author.js file
+
+then we delete our dummy data and comment out our resolve block code that fetches the dummy data.
