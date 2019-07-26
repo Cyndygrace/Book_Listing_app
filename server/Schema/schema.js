@@ -5,7 +5,7 @@ const graphql = require('grapgql');
 
 //We destructure graphql to obtain the graphql object data template
 //next we destructure graphql to get the string
-const {GraphQLObjectType, GraphQLString} = graphql;
+const {GraphQLObjectType, GraphQLString, GraphQLSchema} = graphql;
 
 //define a type
 const BookType = new GraphQLObjectType({
@@ -18,4 +18,23 @@ const BookType = new GraphQLObjectType({
   })
 })
 
-//when we have multiple types,and they have references to one another, unless we wrap those fields in a function, one typr might not necessarily know what another typr is.
+
+//next we defined root query, how user can easily get data
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQueryTypes',
+  // each one of the fields can be a type of root query
+  fields: {
+    // query for a particular book
+    book: {
+      type: BookType,
+      args:{id : {type: GraphQLString}},
+      resolve(parents, args) {
+        //code to get data from db/other source
+      }
+    }
+  }
+  })
+ 
+ 
+ 
+ 
