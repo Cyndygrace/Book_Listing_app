@@ -12,7 +12,7 @@ const { GraphQLObjectType, GraphQLString,
   GraphQLList
 } = graphql;
 
-//dummy data
+//dummy data for books
 var books = [
   { name: 'Name of the wind', genre: 'Fantasy', id: '1', authorID: '1' },
   { name: 'The Final Empire', genre: 'Fantasy', id: '2', authorID: '3' },
@@ -22,13 +22,14 @@ var books = [
   { name: 'The Light Fantastic', genre: 'Sci-Fi', id: '6', authorID: '1' }
 ];
 
+// dummy data for authors
 var authors = [
   { name: 'Patrick Rothufuss', age: 44, id: '1' },
   { name: 'Brandon Sanderson', age: 42, id: '2' },
   { name: 'Terry Pratchett', age: 66, id: '3' }
 ];
 
-//define a type
+//define book object type
 //this type contains all the property that a user can request for
 const BookType = new GraphQLObjectType({
   name: 'Book',
@@ -37,6 +38,7 @@ const BookType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
+    // find book author
     author: {
       type: AuthorType,
       resolve(parent, args) {
@@ -46,7 +48,7 @@ const BookType = new GraphQLObjectType({
   })
 });
 
-//define a type
+//define author object type
 const AuthorType = new GraphQLObjectType({
   name: 'Author',
   //when we have multiple types,and they have references to one another, unless we wrap those fields in a function, one type might not necessarily know what another typr is. so that when we have multiple types, it will help prevent reference errors.
@@ -54,6 +56,7 @@ const AuthorType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
+    // find all books by author
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args){
@@ -69,7 +72,7 @@ const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   // each one of the fields can be a type of root query
   fields: {
-    // query for a particular book
+    // query for a particular book by id
     book: {
       type: BookType,
       args: { id: { type: GraphQLID } },
@@ -79,12 +82,27 @@ const RootQuery = new GraphQLObjectType({
         return _.find(books, { id: args.id });
       }
     },
-
+// query for a particular author by id
     author: {
       type: AuthorType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return _.find(authors, { id: args.id });
+      }
+    },
+
+    // query to display all books/ books and their author
+    books: {
+      type: new GraphQLList(BookType),
+      resolve(parent, args) {
+        return books
+      }
+    }, 
+    // query to display all authors / authors and their books
+    authors: {
+      type: new GraphQLList(AuthorType),
+      resolve(parent, args) {
+        return authors
       }
     }
   }
