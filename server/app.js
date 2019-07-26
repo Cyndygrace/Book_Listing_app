@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 //setup our express app
 const app = express();
 
-// connect to mlab db using mongoose
+// connect to atlas db using mongoose
 mongoose.connect('mongodb+srv://Cyndycodes:cynthia@cluster0-r9uq9.mongodb.net/test?retryWrites=true&w=majority')
 mongoose.connection.once('open', () => {
   console.log('Connected to database...')
