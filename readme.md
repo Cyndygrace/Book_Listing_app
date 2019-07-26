@@ -67,3 +67,6 @@ const {GraphQLObjectType, GraphQLString} = graphql;
 
 
 next we import the schema file in the app file and define it inside the middleware
+
+
+Next we create our dummy data in an array of ojects just temporarily and install Lodash to help us manipulate our hard coded data in the array.

@@ -7,6 +7,13 @@ const graphql = require('grapgql');
 //next we destructure graphql to get the string
 const {GraphQLObjectType, GraphQLString, GraphQLSchema} = graphql;
 
+//dummy data
+var books = [
+{name: 'NAme of the wind', genre: 'Fantasy', id: '1'}
+{name: 'The Final Empire', genre: 'Fantasy', id: '2'}
+{name: 'The Long Earth', genre: 'Sci-Fi', id: '3'}
+]
+
 //define a type
 const BookType = new GraphQLObjectType({
   name :'Book',
