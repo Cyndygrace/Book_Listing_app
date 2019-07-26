@@ -69,6 +69,19 @@ const {GraphQLObjectType, GraphQLString} = graphql;
 next we import the schema file in the app file and define it inside the middleware
 
 
-Next we create our dummy data in an array of ojects just temporarily and install Lodash to help us manipulate our hard coded data in the array.
-
 this is what happens when a request is made
+book(id: '2'){
+  name
+  genre
+}
+form it the request Made, it knows to look for a book query inside the root query, 
+ then check the book query field inside the root query for how to handle the data. 
+ it confirms that the object is is booktype
+ from the args ppty it knows it is expecting the query to come with an id an id 
+ it takes the id from the request and attach it to the args property in the resolve function
+ the query fires the resolve function to run the code to find the book that is either stored in a sql database or no sql database
+
+
+ Next we create our dummy data in an array of ojects just temporarily and install Lodash
+ npm install lodash
+  to help us manipulate or find data from our hard coded data in the array.
