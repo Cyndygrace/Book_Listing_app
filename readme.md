@@ -126,3 +126,8 @@ then we create mongoose schema for our book data that will be stored in the db a
 then we create mongoose schema for our author data that will be stored in the db and also create a model with collection and schema as parameters in the author.js file
 
 then we delete our dummy data and comment out our resolve block code that fetches the dummy data.
+
+then we require the model files into the schema file.
+
+mutations in graphql is what allows us to change or create our data
+so we define our mutation in the schema to be able to create data in our database

@@ -1,6 +1,8 @@
 //require the main graphql
 const graphql = require('graphql');
 const _ = require('lodash');
+const Book = require('../models/books')
+const Author = require('../models/author')
 //in creating our schema,
 
 //We destructure graphql to obtain the graphql object data template
@@ -92,6 +94,49 @@ const RootQuery = new GraphQLObjectType({
   }
 });
 
+// to create a new instance of an author 
+const Mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+    // allows u to add aauthor to the database
+    addAuthor: {
+      type: AuthorType,
+      args: {
+        name: {type: GraphQLString},
+        age: {type: GraphQLInt}
+      },
+      resolve(parent, args){
+        let author = new Author({
+          name: args.name,
+          age: args.age
+        })
+        // saves created data to database
+        return author.save()
+      }
+    },
+
+    // allows you to add book to the database
+    addBook: {
+      type: BookType,
+      args: {
+        name: {type: GraphQLString},
+        genre: {type: GraphQLString},
+        authorID: {type: GraphQLID}
+      },
+      resolve(parent, args){
+        let book = new Book({
+          name: args.name,
+          genre: args.genre,
+          authorID: args.authorID
+        })
+        // saves created data to database
+        return book.save()
+      }
+    }
+  }
+})
+
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: RootQuery,
+  mutation: Mutation
 });
