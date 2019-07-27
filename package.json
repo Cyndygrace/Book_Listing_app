@@ -9,6 +9,7 @@
   "author": "Cynthia Iloekwe",
   "license": "ISC",
   "dependencies": {
+    "create-react-app": "^3.0.1",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^14.4.2",
