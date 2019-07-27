@@ -127,7 +127,50 @@ then we create mongoose schema for our author data that will be stored in the db
 
 then we delete our dummy data and comment out our resolve block code that fetches the dummy data.
 
-then we require the model files into the schema file.
+then we require the files in our model folder into the schema file.
 
-mutations in graphql is what allows us to change or create our data
+Mutations in graphql is what allows us to change or create our data
 so we define our mutation in the schema to be able to create data in our database
+
+we need to resolve our data from our database on atlas, but currently there i'snt any data in there.
+
+in this case, we would use mutation to create data and add it to our database.
+In graphQl, we need to explicitly define our mutaions to say what data can be edited, deleted, created, etc
+
+To define mutation,
+
+first in our schema file, we set  const mutation variable to a new grapgqlobj.
+inside the object we set our name ppty and fields property.
+
+the field property is where we can add, delete, change, update, etc.
+All CRUD operations are defined in the field object.
+
+An example of how CRUD operation can be defined in the field object
+fields: {
+  //crud operation to create/add new author object
+  addAuthor: { 
+    //what type should your data take(this is also defined as a new graphql object in the schema)
+    type: AuthorType
+    args contains the ppty/data and the datatype of it value that we should expect from the user each time they want to create add a new author
+    args: {
+      name: {type: GraphQLString},
+        age: {type: GraphQLInt}
+      },
+      <!-- in the resolve object, we take the argument provided by the user and make a new instance of the author -->
+      resolve(parent, args){
+        <!-- this line cretes a new author data object instance with the arg parameters and stoes it in the Author collection we created in the mongoose model -->
+        let author = new Author({
+          name: args.name,
+          age: args.age
+        })
+        // saves created data to database
+        return author.save()
+    }
+  }
+}
+
+after which you export mutation as a ppty of the graphql schema
+
+
+In order to prevent saving incomplete author or books details to the database,
+we destructure the nonNull ppty from graphql (GraphQLNonNull) and then we apply this ppty to the mutation where the args ppty is defined.
