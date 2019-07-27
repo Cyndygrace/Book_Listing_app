@@ -43,11 +43,12 @@ const AuthorType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
-    // find all books by author
+    // find list of books written  by author
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args){
         //  return _.filter(books,{authorID:parent.id});
+        return Book.find({authorID:parent.id})
        
       }
     }
@@ -66,7 +67,8 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         //code to get data from db/other source
         // use lodash to look through the books array and find the book with the id of id
-        return _.find(books, { id: args.id });
+        // return _.find(books, { id: args.id });
+        return Book.findById(args.id)
       }
     },
 // query for a particular author by id
@@ -75,6 +77,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         // return _.find(authors, { id: args.id });
+        return Author.findById(args.id)
       }
     },
 
@@ -83,6 +86,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(BookType),
       resolve(parent, args) {
         // return books
+        return Book.find({});
       }
     }, 
     // query to display all authors / authors and their books
@@ -90,6 +94,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(AuthorType),
       resolve(parent, args) {
         // return authors
+        return Author.find({})
       }
     }
   }
