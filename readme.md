@@ -174,3 +174,8 @@ after which you export mutation as a ppty of the graphql schema
 
 In order to prevent saving incomplete author or books details to the database,
 we destructure the nonNull ppty from graphql (GraphQLNonNull) and then we apply this ppty to the mutation where the args ppty is defined.
+
+
+Next we will build a frontend with react to communicate with our backend. We will also use apollo as an interface for our react to communicate with our graphQL. GraphQL is not written in javascript so it is cannot communicate with graphQL except through Apollo.
+
+Apollo will help us create a query and bind that query to our component so that when the component renders in the browser, behind the scenes, apollo is handling that query to the server and returning that information so that we can show it inside the component
