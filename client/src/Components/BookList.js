@@ -1,5 +1,6 @@
 import React from 'react';
 import { gql } from 'apollo-boost'; //GraphQL to javascript parser
+import { graphql } from 'react-apollo'; // binds apollo to react
 
 // define our book query
 const getBookQuery = gql`
