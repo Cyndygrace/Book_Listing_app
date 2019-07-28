@@ -233,8 +233,25 @@ Next we bind our query to the component so that we can acces the data that comes
 first importing graphql from react-apollo
 then bing the component to query during export
 
-next we install cors in our express graphql that causes tells graphql to allows request from other service.
+next we install cors in our express graphql server - this causes graphql to allows request from other service.
+then we require cors in the app.js file in the server and set it up for use 
+<!-- rendering data in a compone -->
+the we go back to our client and if we pass th prop function into our book list component and
+if we console.log the props of the booklist component, it will output its result twice
+The react component renders to the browser
+The first data property shown in the console is from our graphql query, at the point, there is no data response from the server and loading is true
 
+the second data ppty occurs when response has been gooten from the server, it populates the gotten data (books) into the data property of the prop . Loading is also false.
+
+
+what happens is when the props is updated with  data, the react re-renders the components, then we can match the component with the data. Now when we recieve the books data, we can then output it to the browser.
+
+
+next we create a function in the component that will control the output of the book data to the screen in the component
+this function is wrotten inside the component before the return statement and called inside the return statement
+
+<!-- New book component -->
+make a query to get the authors and attach them to the form fieldr 
 
 
 
