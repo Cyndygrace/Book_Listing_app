@@ -215,3 +215,8 @@ const client = new ApolloClient({
 //  this allows appolo to know tha it will be making a request to a graphql server
   uri:'http://localhost:4000/graphql'
 })
+
+next we import into app.js file, apollo-provider from react-apollo
+react-apollo is what binds apollo to react, It helps react undertsand what ot is doing and we need the apollo provider to wrap our application and inject whatever adat wwe recieve from our server into our application.
+
+Apollo injcets data from the server into our application using Apolloprovider, To use the Apollo-provider, we wrap our code in the return statement with the Apollo provider tag
