@@ -219,4 +219,23 @@ const client = new ApolloClient({
 next we import into app.js file, apollo-provider from react-apollo
 react-apollo is what binds apollo to react, It helps react undertsand what ot is doing and we need the apollo provider to wrap our application and inject whatever adat wwe recieve from our server into our application.
 
-Apollo injcets data from the server into our application using Apolloprovider, To use the Apollo-provider, we wrap our code in the return statement with the Apollo provider tag
+Apollo injcets data from the server into our application using Apolloprovider, To use the Apollo-provider, we wrap our code in the return statement with the Apollo provider tag.
+
+<!-- Making Queries and binding data -->
+How to make queries in a component;
+first we need to construct the query 
+then we bind the query to the components,  so that the component collects all the data that comes back from the query 
+GraphQl query language is not javascript so we need another language to help parse it into Javascript, 
+in this case, we import gql from apollo-apollo-boost.
+
+Next we define our query
+Next we bind our query to the component so that we can acces the data that comes from the query by
+first importing graphql from react-apollo
+then bing the component to query during export
+
+next we install cors in our express graphql that causes tells graphql to allows request from other service.
+
+
+
+
+
