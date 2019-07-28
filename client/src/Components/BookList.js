@@ -23,4 +23,6 @@ function BookList() {
   );
 }
 
+export default graphql(getBookQuery)(BookList); //the point where the query is bound to the component
+
 
