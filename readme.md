@@ -183,3 +183,27 @@ Apollo will help us create a query and bind that query to our component so that 
 now for the front end
 we first install create react app on the directory
 npm install create-react-app --save
+
+next 
+create-react-app client in the root folder, this creates a client folder and stores all the needed files and dependencies there.
+
+cd into the client folder and run this command, npm start to render the react page on the browser
+then remove all unwanted files in the client generated automatically 
+style the body in the index.js file then to build and render your first component,
+
+create a component folder, crete a file and call it the name of your first component with a capital letter and build
+import you component into the app folder and view output on browser
+
+next we setup Appollo client on our front-end so that we can start interating with our graphQL server, making queries, recieving data and displaying the data on the front end
+
+In order to work with GraphQl on the front-end and make graphQL query our server from the frontend, we would need a graphQL client (Apollo). we can use a front-end library like axios or jqery to help us make request when we make http request to restful api.
+But when it comes to graphQL, we would need to use a graphQl client Appolo to make request from the front-end to the graphQL server.
+
+So for our frontend react app, we would still create queries much like we did previously in graphicle and then feeding then through the garphQl client appolo which will send the request to the sever, the server will then respond, and fee the data back to applo which will oass it back into our react application.
+
+our client is the thing that is incharge for the passage of data from frontend to the back end
+install client apollo from here https://www.apollographql.com/docs/react/essentials/get-started/
+
+npm install apollo-boost react-apollo graphql
+
+next import appolo client into ur app.js file
