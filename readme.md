@@ -251,7 +251,11 @@ next we create a function in the component that will control the output of the b
 this function is wrotten inside the component before the return statement and called inside the return statement
 
 <!-- New book component -->
-make a query to get the authors and attach them to the form fieldr 
+make a query to get the authors and attach them to the form field
+
+first we create the add book component, inside we return our form
+
+then we nest the component in app.js file.
 
 
 
