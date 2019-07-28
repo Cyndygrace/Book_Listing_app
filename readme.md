@@ -207,3 +207,11 @@ install client apollo from here https://www.apollographql.com/docs/react/essenti
 npm install apollo-boost react-apollo graphql
 
 next import appolo client into ur app.js file
+import ApolloClient from "apollo-boost";
+
+now setup apollo client
+/ apollo client setup
+const client = new ApolloClient({
+//  this allows appolo to know tha it will be making a request to a graphql server
+  uri:'http://localhost:4000/graphql'
+})
