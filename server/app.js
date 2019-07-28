@@ -6,12 +6,12 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 
 
+//setup our express app
+const app = express();
+
 // allow cross-origin request
 app.use(cors());
 
-
-//setup our express app
-const app = express();
 
 // connect to atlas db using mongoose
 mongoose.connect('mongodb+srv://Cyndycodes:cynthia@cluster0-r9uq9.mongodb.net/test?retryWrites=true&w=majority')
